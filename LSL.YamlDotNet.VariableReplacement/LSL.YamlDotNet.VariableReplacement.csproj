@@ -1,0 +1,38 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <SnkFile>LSL.snk</SnkFile>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="Exists('$(SnkFile)')">
+    <AssemblyOriginatorKeyFile>$(SnkFile)</AssemblyOriginatorKeyFile>
+    <SignAssembly>True</SignAssembly>      
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <IsPackable>true</IsPackable>
+    <TargetFrameworks>netstandard2.0</TargetFrameworks>
+    <Version>1.0.1</Version>
+    <PackageVersion>1.0.1</PackageVersion>
+    <PackageTags>yaml;variables;variable;replacement;yamldotnet;variable-replace;replace;variable-replacement</PackageTags>
+    <PackageReadmeFile>readme.md</PackageReadmeFile>
+    <PackageDescription>A YamlDotNet parser to replace variables in scalar values</PackageDescription>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <RepositoryUrl>https://github.com/alunacjones/LSL.YamlDotNet.VariableReplacement</RepositoryUrl>
+    <Authors>alunacjones</Authors>
+    <LangVersion>12</LangVersion>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="YamlDotNet" Version="13.7.1" />
+    <PackageReference Include="LSL.VariableReplacer" Version="1.0.2" /> 
+  </ItemGroup>
+
+  <PropertyGroup>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="..\readme.md" Pack="true" PackagePath=""/>
+  </ItemGroup>   
+</Project>
