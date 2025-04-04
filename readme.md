@@ -17,8 +17,13 @@ The following example shows variable replacement in action on a `YAML` file:
 
 ```csharp
 // Necessary usings:
-using LSL.VariableReplacement;
+using System;
+using System.Collections.Generic;
+using System.IO;
+using LSL.VariableReplacer;
 using LSL.YamlDotNet.VariableReplacement;
+using YamlDotNet.Core;
+using YamlDotNet.Serialization;
 
 ...
 
@@ -50,3 +55,5 @@ var result = deserialiser.Deserialize<MyTest>(
 // result.ActualName == "Al Jones"
 // result.Other == "Al Jones"
 ```
+
+[Try it out](https://dotnetfiddle.net/K2p1l1)
