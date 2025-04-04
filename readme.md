@@ -15,7 +15,7 @@ A YamlDotNet parser to replace variables in all `Scalar` values of a `YAML` docu
 
 The following example shows variable replacement in action on a `YAML` file:
 
-```csharp
+```csharp { data-fiddle="K2p1l1" }
 // Necessary usings:
 using System;
 using System.Collections.Generic;
