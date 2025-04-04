@@ -26,7 +26,7 @@ public class Tests
 
         // Act        
         var result = deserialiser.Deserialize<MyTest>(
-            new VariableReplacerParser(replacer, new Parser(new StringReader(
+            new VariableReplacerParser(replacer.ReplaceVariables, new Parser(new StringReader(
             // Note the use of variables in keys as well as values
             """
             $(FieldName): $(FullName)

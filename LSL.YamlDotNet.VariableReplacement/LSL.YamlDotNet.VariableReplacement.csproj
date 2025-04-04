@@ -25,7 +25,6 @@
 
   <ItemGroup>
     <PackageReference Include="YamlDotNet" Version="13.7.1" />
-    <PackageReference Include="LSL.VariableReplacer" Version="1.0.3" /> 
   </ItemGroup>
 
   <PropertyGroup>

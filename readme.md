@@ -6,9 +6,12 @@
 
 A YamlDotNet parser to replace variables in all `Scalar` values of a `YAML` document as it is being parsed.
 
-> **NOTE**: This library uses the variable replacement package found [here](https://www.nuget.org/packages/LSL.VariableReplacer/#readme-body-tab).
+> **NOTE**: This example uses the variable replacement package found [here](https://www.nuget.org/packages/LSL.VariableReplacer/#readme-body-tab).
 
 ## Quick Start
+
+> **NOTE**: Version 2.0.0 and higher removes the dependency on `LSL.VariableReplacer`
+> and changes the constructor to rely on a delegate that receive a `string` and returns a `string`
 
 The following example shows variable replacement in action on a `YAML` file:
 
@@ -32,7 +35,7 @@ var deserialiser = new DeserializerBuilder()
     .Build();
 
 var result = deserialiser.Deserialize<MyTest>(
-    new VariableReplacerParser(replacer, new Parser(new StringReader(
+    new VariableReplacerParser(replacer.ReplaceVariables, new Parser(new StringReader(
     // Note the use of variables in keys as well as values
     """
     $(FieldName): $(FullName)
