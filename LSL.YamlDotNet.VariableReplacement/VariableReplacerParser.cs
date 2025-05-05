@@ -16,11 +16,17 @@ namespace LSL.YamlDotNet.VariableReplacement;
 /// </param>
 public class VariableReplacerParser(Func<string, string> variableReplacer, IParser parser) : IParser
 {
+    private Scalar _currentScalarValue = null;
+    
     /// <inheritdoc/>
     public ParsingEvent Current => parser.Current is Scalar scalar 
-        ? new Scalar(variableReplacer(scalar.Value))
+        ? (_currentScalarValue ??= new Scalar(variableReplacer(scalar.Value)))
         : parser.Current;
 
     /// <inheritdoc/>
-    public bool MoveNext() => parser.MoveNext();
+    public bool MoveNext()
+    {
+        _currentScalarValue = null;
+        return parser.MoveNext();
+    }
 }
